@@ -1,12 +1,5 @@
-var obj = {
-    age: null,
-    set herAge(age){
-        this.age = age; 
-    }
-}
+let re = "888582812fheifuhawehf8123";
 
-obj.herAge = 25;
-console.log(obj.age); // 25
-
-
-
+let p = /\d/g;
+let result = re.match(p);
+console.log(result);

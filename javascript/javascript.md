@@ -1,24 +1,26 @@
-# __Javascript__
+# __Javascript__ // Cheatsheet
 
 ### Comments
 ```javascript
 // this is a single line comment
 
 /* 
-*
-* This is a multi line comment
-*
+*   This is a multi line comment
+*   This is a multi line comment
+*   This is a multi line comment
 */
 ```
+
 ### Variable, arrays, objects
+- - - 
 ```javascript
 
 
 /*
 *
-* Javascript variables are not statically
-* typed, so you can declare a variable
-* without stating what type of data it is.
+*   Javascript variables are not statically
+*   typed, so you can declare a variable
+*   without stating what type of data it is.
 *
 */
 
@@ -34,8 +36,45 @@ var pie = 3.14; // float number
 
 var anArray = [25, 30, "Hello world"];
 console.log(anArray[1]); // 30
+```
+
+You can also manipulate the data inside of an array
+by using the pop(), push(), join(), shift()
+
+The __push()__ method lets you __add data__ of an array.
+```javascript
+var anArray = [1, 2, 3, 4, 5];
+anArray.push(6); // anArray = [1, 2, 3, 4, 5, 6];
+
+```
+
+The __join()__ method lets you join the data inside of an array
+__into a string__ by inserting a certain character.
+```javascript
+var anArray = [1, 2, 3, 4, 5];
+anArray.join('~'); // anArray = [1~2~3~4~5];
+```
+
+The __shift()__ method lets you remove the __first__ array element.
+```javascript
+var anArray = [1, 2, 3, 4, 5];
+anArray.shift(); // anArray = [2, 3, 4, 5];
 
 
+/*
+*   You can also unshift an array
+*   by using the unshift() method
+*/
+```
+
+and the __pop()__ method lets you remove the __last__ array element.
+```javascript
+var anArray = [1, 2, 3, 4, 5];
+anArray.pop(); // anArray = [1, 2, 3, 4];
+```
+
+
+```javascript
 /*
 *
 *   Objects are a declared by a variable
@@ -55,7 +94,8 @@ console.log(theObjects.fname);
 
 ```
 
-### Expressions & Operators
+###  Operators
+- - - 
 You can do basic __arithmetic__ in javascript such as
 using +,-,/,* in manipulating or calculating data.
 
@@ -80,7 +120,87 @@ var result = a * b; // result = 600
 var result = a % b; // 0.66
 ```
 
-## Console commands
+### Regular expressions
+- - -
+Regular expressions is very useful when your trying
+to find a certain _digit_, _non-word_, _word_ or a _letter/character_
+on a __value__.
+
+There are many regular expressions to use from that's
+why Regular expressions can be very useful.
+
+```javascript
+let theValue = 'Name: Renz, Age: 18';
+let reg = /\d/g;
+let age = theValue.match(reg);
+console.log(age); // 18
+```
+
+
+## Event handling
+- - - 
+Event handlers are very useful especially when you wan't your
+web page to be interactive to the user. event handlers is very
+powerful.
+
+the very basic of event handling is the __'onclick'__ command.
+you basically put it on a html element so that the event
+will be recorded when the user __clicked__ the element and run
+a javascript action.
+
+```html
+<html>
+    <body>
+        <button onclick='alert('Hello world!');'>Click me!</button>
+    </body>
+</html>
+
+<!-- 
+       the browser will pop-up a message to the user saying
+            'Hello world!' 
+-->
+```
+
+You can also put actions inside onclick command and
+run a certain __function__. i.e
+```html
+<html>
+    <body>
+    <button onclick="runThis();"></button>
+    <script type="text/javascript">
+        function runThis(){
+            alert("This function ran");
+        }
+    </script>
+    </body>
+</html>
+
+
+<!-- 
+       the browser will pop-up a message to the user saying
+            'This function ran' 
+-->
+```
+
+Another way to do event handling is 'onload'. onload will run
+a function/action when the __page loads__. 
+```html
+<html>
+    <body onload="alert("Alert!!");">
+    </body>
+</html>
+
+<!--
+       the browser will pop-up a message to the user saying
+            'Alert!!' 
+-->
+```
+
+there are also __onMouseover__ and __onMouseout__ that will perform and
+action when the mouse hovers in/out to a certain element.
+
+### Console commands
+- - - 
 ```javascript
 
 
@@ -101,6 +221,7 @@ alert("This is an alert message");
 ```
 
 ### Loops
+- - -
 ```javascript
 /* FOR LOOP
 *   A for loop needs 3 arguments
@@ -117,8 +238,10 @@ for(int x = 0; x < 5; x++){
 */
 
 while(x != 25){
-    console.log(x);
-}
+    console.log(x); // Runs through 1 to 24 then stops to 25
+    x++;
+} 
+
 
 /* DO WHILE LOOP
 *   A do while loop, has a little resemblance to the while
@@ -126,12 +249,15 @@ while(x != 25){
 *   through.
 */
 
+x = 0;
 do {
-    console.log(x);
+    console.log(x); // Runs through 1 to 24 then stops to 25
+    x++;    
 } while(x != 25);
 ```
 
 ### Functions
+- - -
 ```javascript
 // A simple function with no arguments
 function aFunction(){
@@ -169,17 +295,16 @@ function runThis(){
 /*
 *   This will run every
 *   3(3000) seconds
-*
 */
 setInterval(runThis, 3000); 
 
 ```
 
 ### Setters and getters
+- - -
 ```javascript
 
 /*
-*
 *   Setters and getters are very good practice
 *   Especially on OO programming. setters
 */
@@ -209,10 +334,89 @@ obj.herAge = 25;
 console.log(obj.age); // 25
 ```
 
-
 ### Classes
-Javascript is a __class-less__ language. you can achieve to create classes
-by using functions or objects. classes in javascript are __Special functions__.
+- - - 
+You can declare/create a class using the 'class' then the name of the
+class in javascript. A class has a __constructor__. you can create a constructor
+by using the __'constructor()'__ method.
+
+```javascript
+    var name = null;
+
+    class dog {
+        constructor(){
+            this.name = 'Marco';
+        }
+
+        sayName(){
+            console.log("My name is " + this.name);
+        }
+    }
+
+/*
+*   and create an object to 
+*   output/use that class
+*/
+
+    let animal = new dog();
+    console.log(animal.name); // Marco 
+```
+
+You can declare a static method inside of a class. static methods
+are called without initiating their class and cannot be used.
+
+```javascript
+class Pacman {
+    constructor(color, height, width) {
+        this.name = 'Pacman';
+        this.color = color;
+        this.height = height;
+        this.width = width;
+    }
+
+    static setDimension(){
+        this.y = height;
+        this.x = width;
+    }
+
+    showDimensions(){
+        console.log("x: " + this.width + "\ny: " + this.height);
+    }
+}
+
+
+let theMap = new Pacman('Yellow', 300, 500);
+console.log(theMap.showDimensions()); // x: 500
+                                      // y: 300
+```
+
+You can also extends a class by using that class
+functions and methods.
+
+```javascript
+class Cat {
+    constructor(theAction){
+        this.theAction = theAction;
+    }
+
+    doSomething(){
+        console.log("The Cat " + this.theAction + 's');
+    }
+}
+
+class Dog extends Cat{
+    doSomething(){
+        console.log("The Dog " + this.theAction + 's');
+    }
+}
+
+let animal = new Cat('Jump');
+console.log(animal.doSomething()); // This cat Jumps
+
+```
+
+You can also achieve a _class-like_ using a function
+in javascript like so.
 
 ```javascript
 function student(firstname, lastname, theDom){
@@ -227,5 +431,6 @@ function emailAdd(){
 }
 
 var theStudent = new student('Renz','Pulvira','@gmail.com');
-alert(theStudent.theEmail());
+alert(theStudent.theEmail()); // Renz.Pulvira@gmail.com
 ```
+

@@ -1,0 +1,19 @@
+body {
+    font-family: sans-serif;
+}
+
+button {
+    background: linear-gradient(#555, #333);
+    color: #ddd;
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: 1px solid #111;
+    border-bottom: 4px solid #222;
+    outline: none;
+}
+
+button:active {
+    margin-top: 3px;
+    border-bottom: 1px solid #222;
+    transition: all ease;
+}
