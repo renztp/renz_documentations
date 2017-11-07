@@ -1,5 +1,7 @@
-let re = "888582812fheifuhawehf8123";
+let ages = [5, 10, 25, 31];
 
-let p = /\d/g;
-let result = re.match(p);
-console.log(result);
+function findAge(age){
+    return age >= 25;
+}
+
+document.getElementById('thisId').innerHTML = ages.find(findAge);

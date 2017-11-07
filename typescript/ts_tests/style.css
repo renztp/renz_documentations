@@ -1,11 +1,48 @@
-body {
-    background: #000;
-    color: #fff;
+
+.theForm {
+    width: 30%;
+    border: 1px solid gray;
+    padding: 10px;
 }
 
-textarea {
-    background: transparent;
-    color: #fff;
-    border: 0px;
-    outline: none;
-}  /* Something */
+input {
+    width: 97%;
+    padding: 10px 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px 0px;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 3px;
+}
+
+ul li {
+    background: #ddd;
+    list-style: none;
+    margin-top: 3px;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.active {
+    background: orange;
+}
+
+#aList {
+    position: relative;
+    background: #ddd;
+}
+
+.goRight {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    top: 20%;
+    padding: 3px 8px; 
+    border: 1px solid #999;
+}

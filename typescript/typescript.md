@@ -50,8 +50,36 @@ var someData3: any = "bazingga";
 console.log(someData1 + ' ' + someData1 + ' ' + someData1); // 25 true bazingga
 ```
 
+## Variable declaration 
+- - - 
+the very basic or common in declaring variables are __global__ ones.
+you can declare a variable outside any functions or classes and it will
+be available in other functions.
 
-#### Constant variables
+```typescript
+let a: number = 25;
+
+function sayAge(age): number{
+    return age;
+}
+
+console.log(sayAge(a)); // 25
+```
+
+
+We can also declare our variables __inside of a function__.
+```typescript
+function somehting() {
+    message = "Hello world";
+    return sayMessage() {
+        console.log(message); // Hello world
+    }
+}
+```
+
+
+## Constant variables
+- - - 
 You can declare a constant variable in typescript. constant variables are
 unchangeable values. 
 ```typescript
@@ -60,7 +88,15 @@ console.log(num1) // 25
 num1 = 30; // false
 ```
 
-### Functions
+## Arrays
+- - - 
+```typescript
+let anArray = [1, 2, 3, 4, 5]; // Without a type
+let anArray: string[] = ["One", "Two", "Three", "Four"]; // Array with a string type
+```
+
+
+## Functions
 - - -
 You can declare a function that returns nothing (void)
 
@@ -93,8 +129,8 @@ function getAgeOrHeight(age?: number, height?: number) : number {
     if(height == NaN){
         return age;
     } else if(age == NaN) {
-        return height;
     } else {
+        return height;
         return 404;
     }
 }
@@ -157,7 +193,6 @@ let myCar: carProp = {
 }
 
 console.log(myCar.unit); // BMW
-
 ```
 
 
@@ -182,9 +217,40 @@ let Animal = new Dog("Marco");
 console.log("This dog's name is " + Animal.sayName()); // This dog's name is Marco
 ```
 
+You can declare a constructor by writing a __'constructor()'__.
+constructors are automatically initiated when the class is called.
+```typescript
+class saySomething(){
+    Message: string;
+    constructor(theMessage){
+        this.Message = theMessage;
+    }
+
+    sayTheMessage(){
+        return this.Message;
+    }
+}
+
+let message = new saySomething("Hello world");
+console.log(message.sayTheMessage()); // Hello world
+```
+functions in a class are declared without the keyword __'function'__
+```typescript
+class Animal(){
+    Message: string;
+    constructor(theMessage){
+        this.Message = theMessage;
+    }
+
+    sound(){
+        return this.Message;
+    }
+}
+```
+
 ## Arrow functions
 - - - 
-Arrow functions anonymous functions that is more concise in syntax.
+Arrow functions are anonymous functions that is more concise in syntax.
 they are sometimes called 'fat arrow' because of the '=>' symbol in arrow functions.
 arrow functions are more concise in writing function expressions.
 ```typescript
@@ -256,6 +322,86 @@ class Animal {
 }
 ```
 
-## Generic functions
+## Modules
 - - - 
+Modules are a very useful in OOP especially in other frameworks
+such as Angular 4. Exporting a class means that you can spread that
+class or any other type or function so that other .js file can use
+or import it.
+```typescript
+<client.js>
 
+function greet(subject){
+    console.log("I wan't a " + subject);
+}
+
+export { request as theRequest };
+
+
+<developer.js>
+import { theRequest } from './client';
+greet('Website');
+```
+
+You can also import all functions/classes in one line of code by
+using the '*' in import.
+```typescript
+import * from './client';
+```
+
+
+## Generics
+- - - 
+Generics are a more versatile kind of like interface. you can declare a function
+and declare the type when you start to use that function. the reason generics do this
+is because when we reuse our code, we can change the data type depending on the code that
+we are developing.
+```typescript
+function mamaya<T>(name: T) {
+    console.log(name);
+}
+
+let person = new mamaya<string>("Hello world");
+```
+You can use generics on tuples as well.
+```typescript
+interface something<T>{
+    item_1: T,
+    item_2: T
+}
+
+```
+
+
+## Enums
+- - - 
+We use enums to create a set of _contants_ more easily.
+```typescript
+enum controls {
+    up = 1,
+    down = 3,
+    left = 2,
+    right = 4
+}
+
+console.log(controls.down); // 3
+```
+When not defined and if it is numeric. it will _automatically increment_
+the values of the set of data.
+```typescript
+enum other_controls {
+    up = 1,
+    down,
+    left,
+    right
+}
+
+console.log(other_controls.left); // 3
+```
+We can also strings in the set.
+```typescript
+enum students {
+    student_one = 'Renz',
+    student_two = 'Mary'
+}
+```

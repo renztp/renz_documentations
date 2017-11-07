@@ -73,6 +73,22 @@ var anArray = [1, 2, 3, 4, 5];
 anArray.pop(); // anArray = [1, 2, 3, 4];
 ```
 
+the __find()__ array function finds the first element in an array
+that have passed a condition.
+```javascript
+let ages = [5, 10, 25, 31];
+
+function findAge(age){
+    return age >= 25;
+}
+
+document.getElementById('thisId').innerHTML = ages.find(findAge); // 25
+```
+
+```javascript
+
+```
+
 
 ```javascript
 /*
@@ -292,6 +308,7 @@ function runThis(){
     console.log("HELLO");
 }
 
+
 /*
 *   This will run every
 *   3(3000) seconds
@@ -412,7 +429,6 @@ class Dog extends Cat{
 
 let animal = new Cat('Jump');
 console.log(animal.doSomething()); // This cat Jumps
-
 ```
 
 You can also achieve a _class-like_ using a function
